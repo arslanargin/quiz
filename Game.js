@@ -11,7 +11,13 @@ const GameState = Object.freeze({
     QUESTION8: Symbol("question8"),
     QUESTION9: Symbol("question9"),
     QUESTION10: Symbol("question10"),
-    TOAST: Symbol("toast")
+    QUESTION11: Symbol("question11"),
+    QUESTION12: Symbol("question12"),
+    QUESTION13: Symbol("question13"),
+    QUESTION14: Symbol("question14"),
+    QUESTION15: Symbol("question15"),
+    QUESTION16: Symbol("question16"),
+    QUESTION17: Symbol("question17") 
 });
 
 module.exports = class Game{
@@ -113,6 +119,78 @@ module.exports = class Game{
                 break;
                 case GameState.QUESTION9:
                 if(sInput.toLowerCase().match("new brunswick")){
+                    sReply = "Correct Answer. NEXT question or QUIT?";
+                    this.stateCur = GameState.QUESTION10;
+                }else{
+                    sReply = "THE END. Thanks For playing the game.";
+                    this.stateCur = GameState.WELCOMING;
+                }
+                break;
+                case GameState.QUESTION10:
+                if(sInput.toLowerCase().match("next")){
+                    sReply = "Which province joint Canada lastly?NEWFOUNDLAND AND LABRADOR or BRITISH COLUMBIA or NOVA SCOTIA or MANITOBA.";
+                    this.stateCur = GameState.QUESTION11;
+                }else{
+                    sReply = "The End";
+                    this.stateCur = GameState.WELCOMING;
+                }
+                break;
+                case GameState.QUESTION11:
+                if(sInput.toLowerCase().match("newfoundland")){
+                    sReply = "Correct Answer. NEXT question or QUIT?";
+                    this.stateCur = GameState.QUESTION12;
+                }else{
+                    sReply = "THE END. Thanks For playing the game.";
+                    this.stateCur = GameState.WELCOMING;
+                }
+                break;
+                case GameState.QUESTION12:
+                if(sInput.toLowerCase().match("next")){
+                    sReply = "Which province is the diamond capital of North America? NORTHWEST TERRITORIES or YUKON or NUNAVUT or PEI";
+                    this.stateCur = GameState.QUESTION13;
+                }else{
+                    sReply = "The End";
+                    this.stateCur = GameState.WELCOMING;
+                }
+                break;
+                case GameState.QUESTION13:
+                if(sInput.toLowerCase().match("northwest")){
+                    sReply = "Correct Answer. NEXT question or QUIT";
+                    this.stateCur = GameState.QUESTION14;
+                }else{
+                    sReply = "THE END. Thanks For playing the game.";
+                    this.stateCur = GameState.WELCOMING;
+                }
+                break;
+                case GameState.QUESTION14:
+                if(sInput.toLowerCase().match("next")){
+                    sReply = "In Which province there is no sun for 24 hours. NUNAVUT or YUKON or NORTHWEST TERRITORIES or ONTARIO";
+                    this.stateCur = GameState.QUESTION15;
+                }else{
+                    sReply = "The End";
+                    this.stateCur = GameState.WELCOMING;
+                }
+                break;
+                case GameState.QUESTION15:
+                if(sInput.toLowerCase().match("yukon")){
+                    sReply = "Correct Answer. NEXT question or QUIT";
+                    this.stateCur = GameState.QUESTION16;
+                }else{
+                    sReply = "THE END.";
+                    this.stateCur = GameState.WELCOMING;
+                }
+                break;
+                case GameState.QUESTION16:
+                if(sInput.toLowerCase().match("next")){
+                    sReply = "Which city hosted 1988 winter olympics? WINNIPEG or VANCOUVER or MONTREAL or CALGARY";
+                    this.stateCur = GameState.QUESTION17;
+                }else{
+                    sReply = "The End";
+                    this.stateCur = GameState.WELCOMING;
+                }
+                break;
+                case GameState.QUESTION17:
+                if(sInput.toLowerCase().match("calgary")){
                     sReply = "Correct Answer. Thanks For playing the game. Do you want to PLAY again?";
                     this.stateCur = GameState.PLAY;
                 }else{
